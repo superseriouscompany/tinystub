@@ -22,12 +22,8 @@ $ curl -H "Content-Type: application/json" -XPOST http://localhost:3001/some/nes
 
 ```js
 console.log(stubHandle.calls.length);  // 3
-console.log(stubHandle.calls[0].url);  // http://localhost:3001
-console.log(stubHandle.calls[0].body); // null
-console.log(stubHandle.calls[1].url);  // http://localhost:3001/somepath
-console.log(stubHandle.calls[1].body); // {"cool": "nice"}
-console.log(stubHandle.calls[2].url);  // http://localhost:3001/some/nested/path
-console.log(stubHandle.calls[2].body); // {"error": "permission denied"}
+console.log(stubHandle.calls[0].url);  // http://localhost:3001/some/nested/path
+console.log(stubHandle.calls[0].body); // {"error": "permission denied"}
 
 stubHandle(); // shuts down server
 ```
