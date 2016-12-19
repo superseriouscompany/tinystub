@@ -12,9 +12,7 @@
   },
   "keywords": [
     "stub",
-    "end",
-    "to",
-    "end",
+    "end to end",
     "api",
     "testing",
     "mock",
@@ -30,5 +28,11 @@
     "body-parser": "^1.15.2",
     "debug": "^2.4.4",
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
   }
 }
