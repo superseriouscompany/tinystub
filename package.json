@@ -1,5 +1,5 @@
 {
-  "name": "stub",
+  "name": "tinystub",
   "version": "1.0.0",
   "description": "Stub server for http end to end testing. Request determines response http status code, body and headers.",
   "main": "index.js",
