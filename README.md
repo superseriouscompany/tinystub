@@ -18,11 +18,14 @@ $ curl -H "Content-Type: application/json" -XPOST http://localhost:3001/somepath
 
 # returns 403 with body of {"error": "permission denied"}
 $ curl -H "Content-Type: application/json" -XPOST http://localhost:3001/some/nested/path?status=403 -d '{"error": "permission denied"}'
+
+# clears calls
+$ curl -XDELETE http://localhost:3001
 ```
 
 ```js
 console.log(stubHandle.calls.length);  // 3
-console.log(stubHandle.calls[0].url);  // http://localhost:3001/some/nested/path
+console.log(stubHandle.calls[0].url);  // /some/nested/path
 console.log(stubHandle.calls[0].body); // {"error": "permission denied"}
 
 stubHandle(); // shuts down server

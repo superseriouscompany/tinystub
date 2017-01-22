@@ -2,12 +2,17 @@
 
 const express    = require('express');
 const bodyParser = require('body-parser');
-const debug      = require('debug')('stub');
+const debug      = require('debug')('tinystub');
 const app        = express();
 
 let calls = [];
 
 app.use(bodyParser.json());
+
+app.delete('/', function(req, res) {
+  calls = [];
+  return res.sendStatus(204);
+})
 
 app.use('*', function(req, res) {
   debug(req.originalUrl, req.body);
@@ -20,6 +25,6 @@ app.use('*', function(req, res) {
 module.exports = function(port) {
   const server = app.listen(port);
   let handle   = server.close.bind(server);
-  handle.calls = calls;
+  Object.defineProperty(handle, 'calls', { get: function() { return calls } });
   return handle;
 }
